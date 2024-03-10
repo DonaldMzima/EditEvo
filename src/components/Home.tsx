@@ -1,7 +1,4 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import React from 'react'
 
 export default function Home() {
   return (
@@ -37,13 +34,13 @@ export default function Home() {
               </span>
             </button>
 
-            {/* <a className="text-primary dark:text-primary-400" href="#!">
+            <a className="text-primary dark:text-primary-400" href="#!">
               <img
                 src="/EditEvo.JPG"
                 className="w-32 rounded-full shadow-lg"
                 alt="Avatar"
               />
-            </a> */}
+            </a>
           </div>
 
           <div
