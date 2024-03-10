@@ -1,6 +1,5 @@
 import { makeAutoObservable } from 'mobx'
 import { fabric } from 'fabric'
-
 import anime, { get } from 'animejs'
 import {
   MenuOption,
@@ -14,7 +13,7 @@ import {
   Effect,
   TextEditorElement,
 } from '../types'
-
+// import { FabricUitls } from '@/utils/fabric-utils'
 import { FFmpeg } from '@ffmpeg/ffmpeg'
 import { toBlobURL } from '@ffmpeg/util'
 import { FabricUitls } from '../utils/fabric-utils'
@@ -39,7 +38,7 @@ export class Store {
 
   maxTime: number
   animations: Animation[]
-  animationTimeLine: anime.AnimeTimelineInstance
+  animationTimeLine: anime.AnimeTimelineInstance | any
   playing: boolean
 
   currentKeyFrame: number
@@ -989,7 +988,7 @@ export class Store {
         }
       }
       if (element.fabricObject) {
-        element.fabricObject.on('selected', function (e) {
+        element.fabricObject.on('selected', function (e: any) {
           store.setSelectedElement(element)
         })
       }
