@@ -37,13 +37,13 @@ export default function Home() {
               </span>
             </button>
 
-            <a className="text-primary dark:text-primary-400" href="#!">
+            {/* <a className="text-primary dark:text-primary-400" href="#!">
               <img
                 src="/EditEvo.JPG"
                 className="w-32 rounded-full shadow-lg"
                 alt="Avatar"
               />
-            </a>
+            </a> */}
           </div>
 
           <div
