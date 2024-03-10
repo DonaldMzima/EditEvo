@@ -1,30 +1,87 @@
+This was an hobby project developed by me. I will add support for other features in future. Looking for backend/ffmpeg developers to help in generating video from canvas in the backend.
+
+Do you need a custom editor? Get in touch me at [Linked In](https://www.linkedin.com/in/amit-digga/)
+
+Other: [Website](https://www.amitdigga.dev/) | [Twitter](https://twitter.com/AmitDigga) |
+
+# EditEvo
+
+Fabric Video Editor is a video editor that runs in the browser. It is built with fabric.js, Next.js (a React framework), Tailwindcss, Mobx, and typescript.
+
+## Samples
+
+### 3. New Updated UI
+
+<img width="1727" alt="Screenshot 2024-02-22 at 12 09 30 PM" src="https://github.com/AmitDigga/fabric-video-editor/assets/7884106/7246996c-259c-4730-ba19-af060cc94018">
+
+### 2. Editor supports Animations and Effects
+
+https://github.com/AmitDigga/fabric-video-editor/assets/7884106/61c32181-59c2-427c-b816-c51b40bf8bcc
+
+### 1. Basic Working
+
+https://github.com/AmitDigga/fabric-video-editor/assets/7884106/89674396-a0d3-45a3-b1cd-51097142b8f8
+
+## Tech Explanation
+
+todo
+
+## Features
+
+- [x] User can add
+  - [x] Text
+  - [x] Images
+  - [x] Video
+  - [x] Audio
+- [x] User can change
+  - [x] Canvas Background Color
+- [x] Timeline
+- [x] Export Video with Audio
+- [x] Animations
+- [x] Filters
+
+## Main Issues
+
+1. There might be problem in audio handling
+2. Exported video doesnt have time duration
+3. Exported video have flickering issue
+
+## Future Features
+
+3. Properties Editing panel
+4. Video Trimming
+
+## NextJs Default Guide (Updated)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+### Getting Started
 
-First, run the development server:
+#### Setup
+
+1. Clone the repo
+
+2. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+#### Debugging
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Run the development server:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm run dev
+```
+
+2. Then run `Launch Chrome against localhost` in `Run and Debug` tab in VSCode
+
+### Learn More
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -33,7 +90,9 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### Deploy on Vercel (Failing)
+
+Failing because of 50MB function limit on Vercel. Node-Canvas is too big to be deployed on Vercel.
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
