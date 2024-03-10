@@ -1,7 +1,7 @@
 'use client'
 
 import { fabric } from 'fabric'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 
 import { observer } from 'mobx-react'
 import { Resources } from './Resources'
@@ -21,12 +21,14 @@ export const EditorWithStore = () => {
   const [store] = useState(new Store())
   return (
     <StoreContext.Provider value={store}>
-      <SignedIn>
-        <Editor />
-      </SignedIn>
-      <SignedOut>
-        <RedirectToSignIn />
-      </SignedOut>
+      <Suspense fallback={<h2>🌀 Loading...</h2>}>
+        <SignedIn>
+          <Editor />
+        </SignedIn>
+        <SignedOut>
+          <RedirectToSignIn />
+        </SignedOut>
+      </Suspense>
     </StoreContext.Provider>
   )
 }
