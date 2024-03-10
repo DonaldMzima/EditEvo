@@ -2,7 +2,7 @@ This was an hobby project developed by me. I will add support for other features
 
 # EditEvo
 
-Fabric Video Editor is a video editor that runs in the browser. It is built with fabric.js, Next.js (a React framework), Tailwindcss, Mobx, and typescript.
+EditEvo is a video editor that runs in the browser. It is built with fabric.js, Next.js (a React framework), Tailwindcss, Mobx, and typescript.
 
 ## Samples
 
