@@ -1,7 +1,3 @@
-This was an hobby project developed by me. I will add support for other features in future. Looking for backend/ffmpeg developers to help in generating video from canvas in the backend.
-
-# EditEvo
-
 EditEvo is a video editor that runs in the browser. It is built with fabric.js, Next.js (a React framework), Tailwindcss, Mobx, and typescript.
 
 ## Samples
