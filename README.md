@@ -8,7 +8,8 @@ EditEvo is a video editor that runs in the browser. It is built with fabric.js, 
 
 ### 1. UI
 
-<img width="1727" alt="Screenshot 2024-02-22 at 12 09 30 PM" src="https://github.com/AmitDigga/fabric-video-editor/assets/7884106/7246996c-259c-4730-ba19-af060cc94018">
+![Screenshot 2024-03-11 113912](https://github.com/DonaldMzima/EditEvo/assets/90970069/d79d8193-b15b-4687-8dcf-09dcf46aab0f)
+
 
 ## Tech Explanation
 
