@@ -62,25 +62,40 @@ export const Editor = observer(() => {
   }, [store])
 
   return (
-    <div className="grid grid-rows-[auto,1fr,20px] grid-cols-[72px,300px,1fr,250px] h-[100svh]">
-      <div className="tile row-span-2 flex flex-col">
-        <Menu />
+    <>
+      <div className="grid grid-rows-[auto,1fr,20px] grid-cols-[72px,300px,1fr,250px] h-[100svh]">
+        <div className="tile row-span-2 flex flex-col">
+          <Menu />
+        </div>
+        <div className="row-span-2 flex flex-col overflow-scroll">
+          <Resources />
+        </div>
+        <div
+          id="grid-canvas-container"
+          className="col-start-3 bg-slate-100 flex justify-center items-center"
+        >
+          <canvas id="canvas" className="h-[100%] w-full" />
+        </div>
+        <div className="col-start-4 row-start-1">
+          <ElementsPanel />
+        </div>
+        <div className="col-start-3 row-start-2 col-span-2 relative px-[10px] py-[4px] overflow-scroll">
+          <TimeLine />
+        </div>
       </div>
-      <div className="row-span-2 flex flex-col overflow-scroll">
-        <Resources />
-      </div>
-      <div
-        id="grid-canvas-container"
-        className="col-start-3 bg-slate-100 flex justify-center items-center"
-      >
-        <canvas id="canvas" className="h-[100%] w-full" />
-      </div>
-      <div className="col-start-4 row-start-1">
-        <ElementsPanel />
-      </div>
-      <div className="col-start-3 row-start-2 col-span-2 relative px-[10px] py-[4px] overflow-scroll">
-        <TimeLine />
-      </div>
-    </div>
+      <footer className="text-center py-8  bg-cover">
+        <p>
+          Developed by Donald Mzima @{new Date().getFullYear()}
+          <a
+            href="https://github.com/DonaldMzima/EditEvo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 text-[hsla(231,71%,59%,1)] hover:underline"
+          >
+            GitHub
+          </a>
+        </p>
+      </footer>
+    </>
   )
 })
