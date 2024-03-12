@@ -1,4 +1,8 @@
-EditEvo is a video editor that runs in the browser. It is built with fabric.js, Next.js (a React framework), Tailwindcss, Mobx, and typescript.
+EditEvo is a browser-based video editor designed to provide users with powerful editing capabilities directly within their web browser.
+
+The application is built using a combination of modern web technologies including fabric.js for handling canvas operations, Next.js - a React framework for building server-side rendered applications, Tailwind CSS for efficient and customizable styling, MobX for state management, and TypeScript for type safety and enhanced developer experience.
+
+EditEvo aims to offer an intuitive and user-friendly interface while providing advanced video editing features, enabling users to create professional-quality videos without the need for
 
 ## Samples
 
