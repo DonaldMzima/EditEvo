@@ -85,7 +85,16 @@ export const Editor = observer(() => {
       </div>
       <footer className="text-center py-8  bg-cover">
         <p>
-          Developed by Donald Mzima @{new Date().getFullYear()}
+          Developed by
+          <a
+            href="https://donald-portfolio-beta.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            Donald Mzima
+          </a>
+          @{new Date().getFullYear()}
           <a
             href="https://github.com/DonaldMzima/EditEvo"
             target="_blank"
