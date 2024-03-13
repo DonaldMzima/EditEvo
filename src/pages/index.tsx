@@ -88,13 +88,13 @@ export default function Home() {
                 Start Editing
               </a>
               <a
-                className="mb-2 inline-block rounded bg-[#6a6a6d] px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#01214b] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] md:mr-2 md:mb-0"
+                className="mb-2 inline-block rounded  px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-[hsla(231,71%,59%,1)] shadow-[0_4px_9px_-4px_#01214b] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] md:mr-2 md:mb-0"
                 data-te-ripple-init
                 data-te-ripple-color="light"
                 href="/about"
                 role="button"
               >
-                About EditEvo
+                Learn More
               </a>
             </div>
           </div>
@@ -103,7 +103,16 @@ export default function Home() {
 
       <footer className="text-center py-8  bg-cover">
         <p>
-          Developed by Donald Mzima @{new Date().getFullYear()}
+          Developed by
+          <a
+            href="https://donald-portfolio-beta.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            Donald Mzima
+          </a>
+          @{new Date().getFullYear()}
           <a
             href="https://github.com/DonaldMzima/EditEvo"
             target="_blank"
