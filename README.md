@@ -7,7 +7,7 @@ EditEvo aims to offer an intuitive and user-friendly interface while providing a
 ## Samples
 
 ### 1. UI
-### 1.1. Home page
+### 1.1. Home page.
 ![Screenshot 2024-03-11 113912](https://github.com/DonaldMzima/EditEvo/assets/90970069/d79d8193-b15b-4687-8dcf-09dcf46aab0f)
 
 ### 1.2. Editor
