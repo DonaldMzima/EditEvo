@@ -69,7 +69,7 @@ export const Editor = observer(() => {
         <div className="tile row-span-2 flex flex-col e">
           <Menu />
         </div>
-        <div className="row-span-2 flex flex-col overflow-scroll ">
+        <div className="row-span-2 flex flex-col overflow-scroll video audio image texts animation effect fill export">
           <Resources />
         </div>
         <div

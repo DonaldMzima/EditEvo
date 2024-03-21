@@ -29,7 +29,7 @@ export const Menu = observer(() => {
               <OnboardingSteps />
               <li
                 key={option.name}
-                className={`h-[72px] w-[72px] flex flex-col items-center video justify-center ${
+                className={`h-[72px] w-[72px] flex flex-col items-center  justify-center ${
                   isSelected ? 'bg-slate-200' : ''
                 }`}
               >
