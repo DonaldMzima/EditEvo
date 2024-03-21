@@ -14,36 +14,40 @@ import {
 import { UserButton } from '@clerk/nextjs'
 import { StoreContext } from '../../store'
 import { Store } from '../../store/Store'
+import OnboardingSteps from './steps'
 
 export const Menu = observer(() => {
   const store = React.useContext(StoreContext)
 
   return (
     <>
-      <ul className="bg-white h-full">
+      <ul className="bg-white h-full world">
         {MENU_OPTIONS.map((option) => {
           const isSelected = store.selectedMenuOption === option.name
           return (
-            <li
-              key={option.name}
-              className={`h-[72px] w-[72px] flex flex-col items-center justify-center ${
-                isSelected ? 'bg-slate-200' : ''
-              }`}
-            >
-              <button
-                onClick={() => option.action(store)}
-                className={`flex flex-col items-center`}
+            <>
+              <OnboardingSteps />
+              <li
+                key={option.name}
+                className={`h-[72px] w-[72px] flex flex-col items-center video justify-center ${
+                  isSelected ? 'bg-slate-200' : ''
+                }`}
               >
-                <option.icon size="20" color={isSelected ? '#000' : '#444'} />
-                <div
-                  className={`text-[0.6rem] hover:text-black ${
-                    isSelected ? 'text-black' : 'text-slate-600'
-                  }`}
+                <button
+                  onClick={() => option.action(store)}
+                  className={`flex flex-col items-center`}
                 >
-                  {option.name}
-                </div>
-              </button>
-            </li>
+                  <option.icon size="20" color={isSelected ? '#000' : '#444'} />
+                  <div
+                    className={`text-[0.6rem] hover:text-black ${
+                      isSelected ? 'text-black' : 'text-slate-600'
+                    }`}
+                  >
+                    {option.name}
+                  </div>
+                </button>
+              </li>
+            </>
           )
         })}
       </ul>
@@ -61,6 +65,7 @@ const MENU_OPTIONS = [
     action: (store: Store) => {
       store.setSelectedMenuOption('Video')
     },
+    className: 'video',
   },
   {
     name: 'Audio',
@@ -68,6 +73,7 @@ const MENU_OPTIONS = [
     action: (store: Store) => {
       store.setSelectedMenuOption('Audio')
     },
+    className: 'audio',
   },
   {
     name: 'Image',
@@ -75,6 +81,7 @@ const MENU_OPTIONS = [
     action: (store: Store) => {
       store.setSelectedMenuOption('Image')
     },
+    className: 'image',
   },
   {
     name: 'Text',
@@ -82,6 +89,7 @@ const MENU_OPTIONS = [
     action: (store: Store) => {
       store.setSelectedMenuOption('Text')
     },
+    className: 'texts',
   },
   {
     name: 'Animation',
@@ -89,6 +97,7 @@ const MENU_OPTIONS = [
     action: (store: Store) => {
       store.setSelectedMenuOption('Animation')
     },
+    className: 'animation',
   },
   {
     name: 'Effect',
@@ -96,6 +105,7 @@ const MENU_OPTIONS = [
     action: (store: Store) => {
       store.setSelectedMenuOption('Effect')
     },
+    className: 'effect',
   },
   {
     name: 'Fill',
@@ -103,6 +113,7 @@ const MENU_OPTIONS = [
     action: (store: Store) => {
       store.setSelectedMenuOption('Fill')
     },
+    className: 'fill',
   },
   {
     name: 'Export',
@@ -110,5 +121,6 @@ const MENU_OPTIONS = [
     action: (store: Store) => {
       store.setSelectedMenuOption('Export')
     },
+    className: 'export',
   },
 ]

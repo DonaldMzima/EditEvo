@@ -16,6 +16,7 @@ import {
 } from '@clerk/nextjs'
 import { StoreContext } from '../../store'
 import { Store } from '../../store/Store'
+import OnboardingSteps from './steps'
 
 export const EditorWithStore = () => {
   const [store] = useState(new Store())
@@ -63,16 +64,17 @@ export const Editor = observer(() => {
 
   return (
     <>
-      <div className="grid grid-rows-[auto,1fr,20px] grid-cols-[72px,300px,1fr,250px] h-[100svh]">
-        <div className="tile row-span-2 flex flex-col">
+      <OnboardingSteps />
+      <div className="grid grid-rows-[auto,1fr,20px] grid-cols-[72px,300px,1fr,250px] h-[100svh] hello">
+        <div className="tile row-span-2 flex flex-col e">
           <Menu />
         </div>
-        <div className="row-span-2 flex flex-col overflow-scroll">
+        <div className="row-span-2 flex flex-col overflow-scroll ">
           <Resources />
         </div>
         <div
           id="grid-canvas-container"
-          className="col-start-3 bg-slate-100 flex justify-center items-center"
+          className="col-start-3 bg-slate-100 flex justify-center items-center "
         >
           <canvas id="canvas" className="h-[100%] w-full" />
         </div>
@@ -83,7 +85,7 @@ export const Editor = observer(() => {
           <TimeLine />
         </div>
       </div>
-      <footer className="text-center py-8  bg-cover">
+      <footer className="text-center py-8  bg-cover ">
         <p>
           Developed by
           <a
