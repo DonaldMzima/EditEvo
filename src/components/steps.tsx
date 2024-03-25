@@ -58,11 +58,6 @@ const OnboardingSteps = () => {
       hint: 'Hello hint',
       hintPosition: 'middle-right',
     },
-    {
-      element: '.video',
-      hint: 'Hello hint',
-      hintPosition: 'right',
-    },
   ])
 
   const onExit = () => {
