@@ -100,7 +100,7 @@ const MENU_OPTIONS = [
     className: 'animation',
   },
   {
-    name: 'Effect',
+    name: 'fffect',
     icon: MdMovieFilter,
     action: (store: Store) => {
       store.setSelectedMenuOption('Effect')
@@ -116,7 +116,7 @@ const MENU_OPTIONS = [
     className: 'fill',
   },
   {
-    name: 'Export',
+    name: 'export',
     icon: MdDownload,
     action: (store: Store) => {
       store.setSelectedMenuOption('Export')
