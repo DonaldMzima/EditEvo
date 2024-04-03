@@ -47,7 +47,7 @@ export const Menu = observer(() => {
           )
         })}
       </ul>
-      <div className="flex justify-center">
+      <div className="flex justify-center profile">
         <UserButton afterSignOutUrl="/" />
       </div>
     </>

@@ -1,21 +1,16 @@
-'use client'
-
 import { fabric } from 'fabric'
 import React, { Suspense, useEffect, useState } from 'react'
-
 import { observer } from 'mobx-react'
 import { Resources } from './Resources'
 import { ElementsPanel } from './panels/ElementsPanel'
 import { Menu } from './Menu'
 import { TimeLine } from './TimeLine'
-import {
-  ClerkProvider,
-  RedirectToSignIn,
-  SignedIn,
-  SignedOut,
-} from '@clerk/nextjs'
+
+import { RedirectToSignIn, SignedIn, SignedOut } from '@clerk/nextjs'
 import { StoreContext } from '../../store'
 import { Store } from '../../store/Store'
+import { JoyrideComponent } from './entity/Onboarding/Joyride'
+import JoyrideSteps from './entity/Onboarding/Steps'
 
 export const EditorWithStore = () => {
   const [store] = useState(new Store())
@@ -35,6 +30,7 @@ export const EditorWithStore = () => {
 
 export const Editor = observer(() => {
   const store = React.useContext(StoreContext)
+  const [isJoyrideRunning, setIsJoyrideRunning] = useState(true)
 
   useEffect(() => {
     const canvas = new fabric.Canvas('canvas', {
@@ -47,7 +43,7 @@ export const Editor = observer(() => {
     fabric.Object.prototype.cornerStyle = 'circle'
     fabric.Object.prototype.cornerStrokeColor = '#0063d8'
     fabric.Object.prototype.cornerSize = 10
-    // canvas mouse down without target should deselect active object
+
     canvas.on('mouse:down', function (e) {
       if (!e.target) {
         store.setSelectedElement(null)
@@ -59,11 +55,21 @@ export const Editor = observer(() => {
       canvas.renderAll()
       fabric.util.requestAnimFrame(render)
     })
+
+    setIsJoyrideRunning(true)
+
+    return () => {
+      setIsJoyrideRunning(false)
+    }
   }, [store])
+
+  const joyrideSteps = JoyrideSteps() // Use JoyrideSteps
 
   return (
     <>
-      <div className="grid grid-rows-[auto,1fr,20px] grid-cols-[72px,300px,1fr,250px] h-[100svh]">
+      <JoyrideComponent steps={joyrideSteps} isRunning={isJoyrideRunning} />
+
+      <div className="grid grid-rows-[auto,1fr,20px] grid-cols-[72px,300px,1fr,250px] h-[100svh] welcome animation-menu-option">
         <div className="tile row-span-2 flex flex-col">
           <Menu />
         </div>
@@ -74,36 +80,39 @@ export const Editor = observer(() => {
           id="grid-canvas-container"
           className="col-start-3 bg-slate-100 flex justify-center items-center"
         >
-          <canvas id="canvas" className="h-[100%] w-full" />
+          <canvas id="canvas" className="h-full w-full" />
         </div>
-        <div className="col-start-4 row-start-1">
+        <div className="col-start-4 row-start-1 elements">
           <ElementsPanel />
         </div>
-        <div className="col-start-3 row-start-2 col-span-2 relative px-[10px] py-[4px] overflow-scroll">
+
+        <div className="col-start-3 row-start-2 col-span-2 relative px-2 py-1 md:px-[10px] md:py-[4px] overflow-scroll timeline">
           <TimeLine />
         </div>
       </div>
-      <footer className="text-center py-8  bg-cover">
-        <p>
-          Developed by
-          <a
-            href="https://donald-portfolio-beta.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            Donald Mzima
-          </a>
-          @{new Date().getFullYear()}
-          <a
-            href="https://github.com/DonaldMzima/EditEvo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 text-[hsla(231,71%,59%,1)] hover:underline"
-          >
-            GitHub
-          </a>
-        </p>
+      <footer className="text-center py-2 md:py-8 bg-cover footer">
+        <div className=" footer">
+          <p>
+            Developed by
+            <a
+              href="https://donald-portfolio-beta.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Donald Mzima
+            </a>
+            @{new Date().getFullYear()}
+            <a
+              href="https://github.com/DonaldMzima/EditEvo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 text-[hsla(231,71%,59%,1)] hover:underline"
+            >
+              GitHub
+            </a>
+          </p>
+        </div>
       </footer>
     </>
   )
