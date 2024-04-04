@@ -11,6 +11,7 @@ import { StoreContext } from '../../store'
 import { Store } from '../../store/Store'
 import { JoyrideComponent } from './entity/Onboarding/Joyride'
 import JoyrideSteps from './entity/Onboarding/Steps'
+import { ReactSwipeable } from './testSwipeable/ReactSwipeable'
 
 export const EditorWithStore = () => {
   const [store] = useState(new Store())
@@ -30,7 +31,7 @@ export const EditorWithStore = () => {
 
 export const Editor = observer(() => {
   const store = React.useContext(StoreContext)
-  const [isJoyrideRunning, setIsJoyrideRunning] = useState(true)
+  const [isJoyrideRunning, setIsJoyrideRunning] = useState(false)
 
   useEffect(() => {
     const canvas = new fabric.Canvas('canvas', {
@@ -57,10 +58,6 @@ export const Editor = observer(() => {
     })
 
     setIsJoyrideRunning(true)
-
-    return () => {
-      setIsJoyrideRunning(false)
-    }
   }, [store])
 
   const joyrideSteps = JoyrideSteps() // Use JoyrideSteps
@@ -68,7 +65,7 @@ export const Editor = observer(() => {
   return (
     <>
       <JoyrideComponent steps={joyrideSteps} isRunning={isJoyrideRunning} />
-
+      {/* <ReactSwipeable /> */}
       <div className="grid grid-rows-[auto,1fr,20px] grid-cols-[72px,300px,1fr,250px] h-[100svh] welcome animation-menu-option">
         <div className="tile row-span-2 flex flex-col">
           <Menu />
