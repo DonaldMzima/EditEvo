@@ -1,9 +1,4 @@
-import React, { useState } from 'react'
-import Joyride, { CallBackProps, STATUS, Step } from 'react-joyride'
-
-interface Props {
-  breakpoint: string
-}
+import Joyride, { Step } from 'react-joyride'
 
 interface State {
   isRunning: boolean
@@ -13,11 +8,13 @@ interface State {
 export const JoyrideComponent = ({ steps, isRunning }: State) => {
   return (
     <Joyride
+      debug
+      spotlightClicks
+      showProgress
       steps={steps}
       run={isRunning}
-      continuous
-      showProgress
       showSkipButton
+      continuous
       locale={{ next: 'Next', last: 'Finish', skip: 'Skip' }}
       styles={{
         options: {
