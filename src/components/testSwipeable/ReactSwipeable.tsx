@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { FiArrowLeft, FiArrowRight, FiCheck } from 'react-icons/fi' // Import icons
 import SwipeableViews from 'react-swipeable-views'
+import Editor from '../Editor'
 
 const styles = {
   slide: {
     padding: 5,
     color: '#fff',
-
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -29,9 +29,12 @@ const styles = {
     maxWidth: '100%',
     maxHeight: '100%',
   },
+  // fullScreen: {
+  //   height: '100vh', // Full-screen height
+  // },
 }
 
-export const ReactSwipeable = () => {
+export const ReactSwipeable = ({ onSwipeComplete }: any) => {
   const [index, setIndex] = useState(0)
   const [showProcess, setShowProcess] = useState(true)
 
@@ -63,24 +66,28 @@ export const ReactSwipeable = () => {
   const handleDone = () => {
     setShowProcess(false)
     localStorage.setItem('EditEvo_hideProcess', 'true')
+    if (onSwipeComplete) {
+      onSwipeComplete() // Call the callback function if provided
+    }
   }
 
   // Check if the process should be hidden based on localStorage
   if (localStorage.getItem('EditEvo_hideProcess') === 'true') {
-    return null // Return null to hide the process
+    return <Editor /> // Return null to hide the process
   }
 
   return (
     <div>
-      {showProcess && (
-        <div>
+      {showProcess ? (
+        <div className="w-full h-full">
           <SwipeableViews
-            className="w-48"
+            enableMouseEvents
+            className="w-full h-full"
             index={index}
             onChangeIndex={handlePagination}
           >
             <div style={styles.slide}>
-              <img src="/men1u_mobile.png" alt="Slide 1" style={styles.image} />
+              <img src="/menu_mobile.png" alt="Slide 1" style={styles.image} />
             </div>
             <div style={styles.slide}>
               <img
@@ -97,11 +104,7 @@ export const ReactSwipeable = () => {
               />
             </div>
             <div style={styles.slide}>
-              <img
-                src="/canvas_mobile.png"
-                alt="Slide 4"
-                style={styles.image}
-              />
+              <img src="/canvas.png" alt="Slide 4" style={styles.image} />
             </div>
             <div style={styles.slide}>
               <img
@@ -149,6 +152,8 @@ export const ReactSwipeable = () => {
             </button>
           )}
         </div>
+      ) : (
+        <Editor />
       )}
     </div>
   )

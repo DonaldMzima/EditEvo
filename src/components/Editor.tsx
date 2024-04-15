@@ -1,35 +1,16 @@
 import { fabric } from 'fabric'
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { observer } from 'mobx-react'
 import { Resources } from './Resources'
 import { ElementsPanel } from './panels/ElementsPanel'
 import { Menu } from './Menu'
 import { TimeLine } from './TimeLine'
-
-import { RedirectToSignIn, SignedIn, SignedOut } from '@clerk/nextjs'
 import { StoreContext } from '../../store'
-import { Store } from '../../store/Store'
+
 import { JoyrideComponent } from './entity/Onboarding/Joyride'
 import JoyrideSteps from './entity/Onboarding/Steps'
-import { ReactSwipeable } from './testSwipeable/ReactSwipeable'
 
-export const EditorWithStore = () => {
-  const [store] = useState(new Store())
-  return (
-    <StoreContext.Provider value={store}>
-      <Suspense fallback={<h2>🌀 Loading...</h2>}>
-        <SignedIn>
-          <Editor />
-        </SignedIn>
-        <SignedOut>
-          <RedirectToSignIn />
-        </SignedOut>
-      </Suspense>
-    </StoreContext.Provider>
-  )
-}
-
-export const Editor = observer(() => {
+const Editor = observer(() => {
   const store = React.useContext(StoreContext)
   const [isJoyrideRunning, setIsJoyrideRunning] = useState(false)
 
@@ -114,3 +95,5 @@ export const Editor = observer(() => {
     </>
   )
 })
+
+export default Editor
