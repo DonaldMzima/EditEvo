@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FiArrowLeft, FiArrowRight, FiCheck } from 'react-icons/fi' // Import icons
 import SwipeableViews from 'react-swipeable-views'
-import Editor from '../Editor'
+import MobileEditor from '../MobileView/MobileEditor'
 
 const styles = {
   slide: {
@@ -29,9 +29,9 @@ const styles = {
     maxWidth: '100%',
     maxHeight: '100%',
   },
-  // fullScreen: {
-  //   height: '100vh', // Full-screen height
-  // },
+  fullScreen: {
+    height: '100vh',
+  },
 }
 
 export const ReactSwipeable = ({ onSwipeComplete }: any) => {
@@ -52,7 +52,7 @@ export const ReactSwipeable = ({ onSwipeComplete }: any) => {
   }
 
   const handleNext = () => {
-    if (index < 5) {
+    if (index < 6) {
       setIndex(index + 1)
     }
   }
@@ -67,14 +67,23 @@ export const ReactSwipeable = ({ onSwipeComplete }: any) => {
     setShowProcess(false)
     localStorage.setItem('EditEvo_hideProcess', 'true')
     if (onSwipeComplete) {
-      onSwipeComplete() // Call the callback function if provided
+      onSwipeComplete()
     }
   }
 
-  // Check if the process should be hidden based on localStorage
   if (localStorage.getItem('EditEvo_hideProcess') === 'true') {
-    return <Editor /> // Return null to hide the process
+    return <MobileEditor />
   }
+
+  const slides = [
+    { title: 'Introduction', image: '/introduction.jpg' },
+    { title: 'Slide 1', image: '/menu_mobile.png' },
+    { title: 'Slide 2', image: '/opations_mobile.png' },
+    // { title: 'Slide 3', image: '/profile_mobile.png' },
+    { title: 'Slide 4', image: '/canvas.png' },
+    { title: 'Slide 5', image: '/elements_mobile.png' },
+    { title: 'Slide 6', image: '/footer_mobile.png' },
+  ]
 
   return (
     <div>
@@ -86,43 +95,15 @@ export const ReactSwipeable = ({ onSwipeComplete }: any) => {
             index={index}
             onChangeIndex={handlePagination}
           >
-            <div style={styles.slide}>
-              <img src="/menu_mobile.png" alt="Slide 1" style={styles.image} />
-            </div>
-            <div style={styles.slide}>
-              <img
-                src="/opations_mobile.png"
-                alt="Slide 2"
-                style={styles.image}
-              />
-            </div>
-            <div style={styles.slide}>
-              <img
-                src="/profile_mobile.png"
-                alt="Slide 3"
-                style={styles.image}
-              />
-            </div>
-            <div style={styles.slide}>
-              <img src="/canvas.png" alt="Slide 4" style={styles.image} />
-            </div>
-            <div style={styles.slide}>
-              <img
-                src="/elements_mobile.png"
-                alt="Slide 5"
-                style={styles.image}
-              />
-            </div>
-            <div style={styles.slide}>
-              <img
-                src="/footer_mobile.png"
-                alt="Slide 6"
-                style={styles.image}
-              />
-            </div>
+            {slides.map((slide, idx) => (
+              <div key={idx} style={styles.slide}>
+                <img src={slide.image} alt={slide.title} style={styles.image} />
+                <p>{slide.title}</p>
+              </div>
+            ))}
           </SwipeableViews>
           <div style={styles.pagination}>
-            {[0, 1, 2, 3, 4, 5].map((step) => (
+            {[0, 1, 2, 3, 4, 5, 6].map((step) => (
               <div
                 key={step}
                 style={{
@@ -138,14 +119,14 @@ export const ReactSwipeable = ({ onSwipeComplete }: any) => {
               <FiArrowLeft />
             </button>
           )}
-          {index !== 5 && <button onClick={handleSkip}>Skip</button>}
+          {index !== 6 && <button onClick={handleSkip}>Skip</button>}
 
-          {index !== 5 && (
+          {index !== 6 && (
             <button onClick={handleNext}>
               <FiArrowRight />
             </button>
           )}
-          {index === 5 && (
+          {index === 6 && (
             <button onClick={handleDone}>
               Done
               {/* <FiCheck /> */}
@@ -153,7 +134,7 @@ export const ReactSwipeable = ({ onSwipeComplete }: any) => {
           )}
         </div>
       ) : (
-        <Editor />
+        <MobileEditor />
       )}
     </div>
   )
