@@ -79,10 +79,11 @@ export const ReactSwipeable = ({ onSwipeComplete }: any) => {
     { title: 'Introduction', image: '/introduction.jpg' },
     { title: 'Slide 1', image: '/menu_mobile.png' },
     { title: 'Slide 2', image: '/opations_mobile.png' },
-    // { title: 'Slide 3', image: '/profile_mobile.png' },
+
     { title: 'Slide 4', image: '/canvas.png' },
     { title: 'Slide 5', image: '/elements_mobile.png' },
     { title: 'Slide 6', image: '/footer_mobile.png' },
+    { title: 'Slide 3', image: '/profile_mobile.png' },
   ]
 
   return (
