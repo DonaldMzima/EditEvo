@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { Footer } from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -100,29 +101,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <footer className="text-center py-8  bg-cover">
-        <p>
-          Developed by
-          <a
-            href="https://donald-portfolio-beta.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            Donald Mzima
-          </a>
-          @{new Date().getFullYear()}
-          <a
-            href="https://github.com/DonaldMzima/EditEvo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 text-[hsla(231,71%,59%,1)] hover:underline"
-          >
-            GitHub
-          </a>
-        </p>
-      </footer>
+      <Footer />
     </div>
   )
 }

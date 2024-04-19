@@ -6,6 +6,7 @@ import { ElementsPanel } from '../panels/ElementsPanel'
 import { TimeLine } from '../TimeLine'
 import { Resources } from '../Resources'
 import { Menu } from '../Menu'
+import { Footer } from '../Footer'
 
 const MobileEditor = observer(() => {
   const store = React.useContext(StoreContext)
@@ -56,28 +57,7 @@ const MobileEditor = observer(() => {
         </div>
       </div>
 
-      <footer className="col-span-12 text-center py-2 md:py-8 bg-cover footer">
-        <p>
-          Developed by{' '}
-          <a
-            href="https://donald-portfolio-beta.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            Donald Mzima
-          </a>{' '}
-          @{new Date().getFullYear()}
-          <a
-            href="https://github.com/DonaldMzima/EditEvo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 text-[hsla(231,71%,59%,1)] hover:underline"
-          >
-            GitHub
-          </a>
-        </p>
-      </footer>
+      <Footer />
     </div>
   )
 })

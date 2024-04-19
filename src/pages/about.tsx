@@ -1,3 +1,4 @@
+import { Footer } from '@/components/Footer'
 import Head from 'next/head'
 
 export default function AboutPage() {
@@ -115,28 +116,10 @@ export default function AboutPage() {
           </div>
         </div>
       </main>
-      <footer className="text-center py-8 bg-cover text-[#e0e1e4]">
-        <p className="text-[#e0e1e4]">
-          Developed by
-          <a
-            href="https://donald-portfolio-beta.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            Donald Mzima
-          </a>
-          @{new Date().getFullYear()}
-          <a
-            href="https://github.com/DonaldMzima/EditEvo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 text-[hsla(231,71%,59%,1)] hover:underline"
-          >
-            GitHub
-          </a>
-        </p>
-      </footer>
+
+      <div className="text-center py-8 bg-cover text-[#e0e1e4]">
+        <Footer />
+      </div>
     </div>
   )
 }
