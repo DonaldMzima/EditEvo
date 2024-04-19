@@ -42,7 +42,11 @@ const EditorWithStore = () => {
           )}
         </SignedIn>
         <SignedOut>
-          <RedirectToSignIn />
+          <RedirectToSignIn
+            redirectUrl={'/sign-in'}
+            afterSignInUrl={'/editor'}
+            afterSignUpUrl={'/editor'}
+          />
         </SignedOut>
       </Suspense>
     </StoreContext.Provider>

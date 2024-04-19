@@ -9,6 +9,7 @@ import { StoreContext } from '../../store'
 
 import { JoyrideComponent } from './entity/Onboarding/Joyride'
 import JoyrideSteps from './entity/Onboarding/Steps'
+import { Footer } from './Footer'
 
 const Editor = observer(() => {
   const store = React.useContext(StoreContext)
@@ -46,7 +47,7 @@ const Editor = observer(() => {
   return (
     <>
       <JoyrideComponent steps={joyrideSteps} isRunning={isJoyrideRunning} />
-      {/* <ReactSwipeable /> */}
+
       <div className="grid grid-rows-[auto,1fr,20px] grid-cols-[72px,300px,1fr,250px] h-[100svh] welcome animation-menu-option">
         <div className="tile row-span-2 flex flex-col">
           <Menu />
@@ -68,30 +69,7 @@ const Editor = observer(() => {
           <TimeLine />
         </div>
       </div>
-      <footer className="text-center py-2 md:py-8 bg-cover footer">
-        <div className=" footer">
-          <p>
-            Developed by
-            <a
-              href="https://donald-portfolio-beta.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              Donald Mzima
-            </a>
-            @{new Date().getFullYear()}
-            <a
-              href="https://github.com/DonaldMzima/EditEvo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-2 text-[hsla(231,71%,59%,1)] hover:underline"
-            >
-              GitHub
-            </a>
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 })
