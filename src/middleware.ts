@@ -4,7 +4,7 @@ export default authMiddleware({
   publicRoutes: ['/', '/privacy-policy', '/contact'],
   // Routes that can always be accessed, and have
   // no authentication information
-  ignoredRoutes: ['/', '/privacy-policy', '/contact'],
+  ignoredRoutes: ['/', '/privacy-policy', '/contact', '/about'],
 })
 
 export const config = {
